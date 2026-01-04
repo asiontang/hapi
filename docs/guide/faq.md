@@ -12,7 +12,7 @@ HAPI (哈皮) is a Chinese transliteration of "Happy", reflecting the project's 
 
 ### Is HAPI free?
 
-Yes, HAPI is open source and free to use under the LGPL-3.0 license.
+Yes, HAPI is open source and free to use under the AGPL-3.0-only license.
 
 ### What AI agents does HAPI support?
 

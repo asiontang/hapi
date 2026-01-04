@@ -10,7 +10,7 @@
   },
   "keywords": ["hapi", "ai", "agent", "documentation"],
   "author": "",
-  "license": "LGPL-3.0-or-later",
+  "license": "AGPL-3.0-only",
   "devDependencies": {
     "vitepress": "^1.6.4"
   }

@@ -41,21 +41,6 @@ sudo mv ./hapi /usr/local/bin/
 </details>
 
 <details>
-<summary>Docker (server only)</summary>
-
-```bash
-docker pull ghcr.io/tiann/hapi-server:latest
-
-docker run -d \
-  --name hapi-server \
-  -p 3006:3006 \
-  -v ~/.hapi:/root/.hapi \
-  -e CLI_API_TOKEN=your-secret-token \
-  ghcr.io/tiann/hapi-server:latest
-```
-</details>
-
-<details>
 <summary>Build from source</summary>
 
 ```bash
