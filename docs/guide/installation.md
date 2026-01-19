@@ -106,8 +106,10 @@ On first run, HAPI:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `CLI_API_TOKEN` | Auto-generated | Shared secret for authentication |
-| `HAPI_SERVER_URL` | `http://localhost:3006` | Server URL for CLI |
-| `WEBAPP_PORT` | `3006` | HTTP server port |
+| `HAPI_API_URL` | `http://localhost:3006` | Server URL for CLI |
+| `HAPI_LISTEN_HOST` | `127.0.0.1` | HTTP server bind address |
+| `HAPI_LISTEN_PORT` | `3006` | HTTP server port |
+| `HAPI_PUBLIC_URL` | - | Public URL for external access |
 | `HAPI_HOME` | `~/.hapi` | Config directory path |
 | `DB_PATH` | `~/.hapi/hapi.db` | Database file path |
 | `CORS_ORIGINS` | - | Allowed CORS origins |
@@ -118,7 +120,7 @@ On first run, HAPI:
 If the server is not on localhost, set these before running `hapi`:
 
 ```bash
-export HAPI_SERVER_URL="http://your-server:3006"
+export HAPI_API_URL="http://your-server:3006"
 export CLI_API_TOKEN="your-token-here"
 ```
 
@@ -154,7 +156,7 @@ If you prefer not to use the public relay (e.g., for lower latency or self-manag
 https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
 
 ```bash
-export WEBAPP_URL="https://your-tunnel.trycloudflare.com"
+export HAPI_PUBLIC_URL="https://your-tunnel.trycloudflare.com"
 hapi server
 ```
 </details>
@@ -194,7 +196,7 @@ Enable Telegram notifications and Mini App access:
 
 ```bash
 export TELEGRAM_BOT_TOKEN="your-bot-token"
-export WEBAPP_URL="https://your-public-url"
+export HAPI_PUBLIC_URL="https://your-public-url"
 
 hapi server
 ```

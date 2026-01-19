@@ -139,7 +139,7 @@ User interface components.
 hapi runner start
 
 # With custom bot URL (for local development):
-HAPI_SERVER_URL=http://localhost:3006 CLI_API_TOKEN=your_token hapi runner start
+HAPI_API_URL=http://localhost:3006 CLI_API_TOKEN=your_token hapi runner start
 
 # Stop the runner:
 hapi runner stop
