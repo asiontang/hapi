@@ -24,3 +24,7 @@ export function runtimePath(): string {
 export function isBunCompiled(): boolean {
     return isCompiled;
 }
+
+export function getWorkingDirectory(): string {
+    return process.env.HAPI_WORKING_DIRECTORY || process.cwd();
+}

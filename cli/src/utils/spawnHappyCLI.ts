@@ -104,6 +104,21 @@ export function spawnHappyCLI(args: string[], options: SpawnOptions = {}): Child
       throw new Error(errorMessage);
     }
   }
+
+  // In development mode, don't change cwd to avoid breaking path alias resolution
+  // Instead, pass the working directory via environment variable
+  let spawnOptions = options;
+  if (!isBunCompiled() && 'cwd' in options) {
+    const { cwd: _, ...rest } = options;
+    spawnOptions = {
+      ...rest,
+      env: {
+        ...(process.env),
+        ...(options.env || {}),
+        HAPI_WORKING_DIRECTORY: String(options.cwd)
+      }
+    };
+  }
   
-  return spawn(spawnCommand, spawnArgs, options);
+  return spawn(spawnCommand, spawnArgs, spawnOptions);
 }
