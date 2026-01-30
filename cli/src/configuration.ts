@@ -29,7 +29,9 @@ class Configuration {
 
     constructor() {
         // Server configuration
-        this._apiUrl = process.env.HAPI_API_URL || 'http://localhost:3006'
+        // Use HAPI_LISTEN_PORT if set, otherwise default to 3006
+        const port = process.env.HAPI_LISTEN_PORT || '3006'
+        this._apiUrl = process.env.HAPI_API_URL || `http://localhost:${port}`
         this._cliApiToken = process.env.CLI_API_TOKEN || ''
 
         // Check if we're running as runner based on process args

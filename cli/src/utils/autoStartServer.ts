@@ -111,10 +111,12 @@ async function shouldAutoStartServer(): Promise<boolean> {
         return false
     }
 
-    // Condition 3: Port 3006 is not currently listening
-    const isListening = await checkPortListening(DEFAULT_SERVER_PORT)
+    // Condition 3: Port is not currently listening
+    // Use HAPI_LISTEN_PORT if set, otherwise default to 3006
+    const port = process.env.HAPI_LISTEN_PORT ? parseInt(process.env.HAPI_LISTEN_PORT, 10) : DEFAULT_SERVER_PORT
+    const isListening = await checkPortListening(port)
     if (isListening) {
-        logger.debug('[AUTO-START] Port 3006 already in use, skipping auto-start')
+        logger.debug(`[AUTO-START] Port ${port} already in use, skipping auto-start`)
         return false
     }
 
